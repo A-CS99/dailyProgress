@@ -1,0 +1,435 @@
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/message.scss";
+@import "~taro-ui/dist/style/components/float-layout.scss";
+@import "~taro-ui/dist/style/components/list.scss";
+
+button {
+  background-color: transparent;
+  line-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+button::after {
+  border: none;
+}
+
+// 主体
+
+.main {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #F4F4F4;
+}
+
+// 顶部件
+
+.top {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 1.69%;
+  bottom: 93.24%;
+  // border: 1px solid #000000;
+}
+
+.detail {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 25px;
+  top: 10px;
+  // border: 1px solid #000000;
+
+  background: url('../../static/imgs/detail.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.topCenter {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  left: 225px;
+  top: 0px;
+}
+
+.day {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  left: 20px;
+  top: 0px;
+  padding: 5%;
+  background-image: url('../../static/imgs/clock.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+
+.week {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  left: 110px;
+  top: 0px;
+  padding: 5%;
+}
+
+.month {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  left: 200px;
+  top: 0px;
+  padding: 5%;
+}
+
+.topText {
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 100%;
+}
+
+.topRight {
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  left: 570px;
+  top: 0px;
+}
+
+.sleep {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 102px;
+  top: 5px;
+  background: url('../../static/imgs/moon.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.leisure {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 28px;
+  top: 5px;
+  background: url('../../static/imgs/leisure.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  opacity: 0.6;
+}
+
+// 上半简介栏
+
+.menu {
+  position: absolute;
+  left: 3.33%;
+  right: 3.33%;
+  top: 9.3%;
+  bottom: 69.57%;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.date {
+  position: absolute;
+  width: 278px;
+  height: 60px;
+  left: 30px;
+  top: 23px;
+}
+
+.dateText {
+  position: absolute;
+  width: 245px;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 60px;
+  /* identical to box height, or 150% */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.dateMore {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 230px;
+  top: 33px;
+  background-image: url('../../static/imgs/more2.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.remains {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  height: 25px;
+  left: 30px;
+  top: 95px;
+}
+
+.remainsText {
+  width: 189px;
+  height: 25px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  /* identical to box height, or 125% */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.countBar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  height: 80px;
+  left: 30px;
+  bottom: 31px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.dataNum {
+  width: 150px;
+  height: 50px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 100%;
+  /* identical to box height, or 125% */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.dataText {
+  width: 150px;
+  height: 40px;
+  padding: 5px 0;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 125%;
+  /* identical to box height, or 125% */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.bgImg {
+  position: absolute;
+  width: 170px;
+  height: 190px;
+  right: 16px;
+  top: 0px;
+  background-image: url('../../static/imgs/textBg.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  opacity: 0.6;
+}
+
+// 下半日程表
+
+.schemes {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 3.33%;
+  right: 3.33%;
+  top: 32.12%;
+  bottom: 12.93%;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.scheme {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  height: 150px;
+  margin: 20px auto 0;
+  background: rgba(245, 245, 245, 0.6);
+  box-shadow: 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+.scheme-title {
+  width: 30%;
+  height: fit-content;
+  margin: auto 0 auto 20px;
+  // border: 1px solid black;
+
+  font-family: 'Inter';
+  font-style: normal;
+  letter-spacing: 5px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 45px;
+  text-align: center;
+
+  color: rgba(60, 60, 200, 0.8);
+}
+
+.scheme-right {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100px;
+  // border: 1px solid black;
+  margin: 30px 50px 0 0;
+}
+
+.scheme-content {
+  width: 100%;
+  height: 30px;
+  // border: 1px solid black;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.scheme-time {
+  width: 100%;
+  height: 70px;
+  // border: 1px solid black;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 70px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.noSchemes {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 80px;
+  left: calc(50% - 280px/2);
+  top: calc(50% - 80px/2);
+}
+
+.noSchemes Text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  /* or 167% */
+
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.6);
+}
+
+// 底部+号按钮
+
+.btn {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 24px;
+  bottom: 33px;
+  // border: 1px solid #000000;
+  background-image: url('../../static/imgs/button.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+// 浮动弹窗表单
+.scheme-form {
+  margin: 0 30px;
+  padding: 30px;
+}
+
+.input-title {
+  border: 1px solid #eee;
+  padding: 10px;
+  font-size: medium;
+  width: 100%;
+}
+
+.input-content {
+  border: 1px solid #eee;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  font-size: medium;
+  margin-bottom: 40px;
+}
+
+.input-picker {
+  height: 300px;
+  width: 100%;
+}
+
+.form-hint {
+  font-size: small;
+  color: gray;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
