@@ -7,6 +7,7 @@ import Schemes from '../components/Schemes.jsx'
 import SchemeForm from '../components/SchemeForm.jsx'
 import { AtFloatLayout, AtMessage } from 'taro-ui'
 import './index.scss'
+import { stringify } from 'postcss'
 
 
 class Index extends Component {
@@ -24,7 +25,9 @@ class Index extends Component {
     };
   }
 
-  componentWillMount () { }
+  //此处修改为自己的服务器地址
+  setUrl = 'http://127.0.0.1:5000/setSchemes';
+  getUrl = 'http://127.0.0.1:5000/getSchemes';
 
   handleBtnClick = () => {
     this.setState({
@@ -56,13 +59,35 @@ class Index extends Component {
       this.setState({
         isFormOpen: false,
         schemes: [...this.state.schemes, {title: this.state.formTitle, content: this.state.formContent, time: this.state.selectTime[0] + '-' + this.state.selectTime[1]}],
+        total: this.state.total + 1,
+        wait: this.state.wait + 1,
       })
       setTimeout(() => {
-        this.setState({
-          total: this.state.schemes.length,
-          wait: this.state.schemes.length,
+        let user = '';
+        const that = this;
+        Taro.getStorage({
+          key: 'openid',
+          success: (res) => {
+            user = res.data;
+            Taro.request({
+              url: that.setUrl,
+              method: 'POST',
+              data: JSON.stringify({
+                user: user,
+                scheme: {
+                  title: that.state.formTitle,
+                  content: that.state.formContent,
+                  time: that.state.selectTime[0] + '-' + that.state.selectTime[1]
+                }
+              }),
+              header: {
+                'content-type': 'application/json'
+              }
+            })
+          }
         })
-      }, 100)
+        
+      }, 1000);
     }
   }
 
@@ -89,6 +114,33 @@ class Index extends Component {
       selectTime: [this.state.selectTime[0], e.detail.value],
     })
   }
+
+  componentWillMount () {
+    let user = '';
+    Taro.getStorage({
+      key: 'openid',
+      success: (res) => {
+        user = res.data;
+      },
+      complete: () => {
+        Taro.request({
+          url: this.getUrl,
+          method: 'GET',
+          data: {user: user},
+          success: (res) => {
+            console.log(res.data);
+            this.setState({
+              schemes: [...this.state.schemes, ...res.data],
+              total: res.data.length,
+              wait: res.data.length,
+            })
+          }
+        })
+      }
+    })
+  }
+
+  componentDidMount () { }
 
   render () {
     return (
