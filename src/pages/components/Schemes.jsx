@@ -1,10 +1,11 @@
 import { Component } from "react";
-import { View, Text } from "@tarojs/components";
+import { ScrollView, View, Text } from "@tarojs/components";
+import { SchemeForm } from "../components/SchemeForm.jsx";
+import { AtFloatLayout, AtMessage } from 'taro-ui'
 import '../index/index.scss';
 
 class Schemes extends Component {
 
-    componentWillMount() { }
     render() {
         let children;
         if(this.props.schemes.length === 0) {
@@ -16,21 +17,26 @@ class Schemes extends Component {
             )
         }else{
             children = this.props.schemes.map((item, index) => {
-                return(
-                    <View className = 'scheme' key = {index}>
-                        <View className = 'scheme-title'>{item.title}</View>
-                        <View className = 'scheme-right'>
-                            <View className = 'scheme-content'>{item.content}</View>
-                            <View className = 'scheme-time'>{item.time}</View>
+                const date = item.start.substring(0, 10);
+                const time = item.start.substring(11, 16) + '-' + item.end.substring(11, 16);
+                const tid = item.tid;
+                if(date === this.props.date) {
+                    return(
+                        <View className = 'scheme' key = {tid} onClick={(e) => this.props.handleClick(tid, e)}>
+                            <View className = 'scheme-title'>{item.name}</View>
+                            <View className = 'scheme-right'>
+                                <View className = 'scheme-content'>{item.desc}</View>
+                                <View className = 'scheme-time'>{time}</View>
+                            </View>
                         </View>
-                    </View>
-                )
+                    )
+                }
             })
         }
         return(
-            <View className = 'schemes'>
+            <ScrollView className = 'schemes' scrollY scrollWithAnimation scrollTop={0}>
                 {children}
-            </View>
+            </ScrollView>
         )
     }
 }
