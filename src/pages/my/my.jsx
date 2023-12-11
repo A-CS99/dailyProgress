@@ -14,7 +14,8 @@ export default class Index extends Component {
 
   handleClick = () => {
     const that = this;
-    const loginUrl = 'http://127.0.0.1:5000/onLogin';
+    const loginUrl = 'https://uuwhat2do.org.cn:38324/dp/api/onLogin';
+    // const loginUrl = 'http://localhost:5000/onLogin';
     Taro.login({
       success: function (res) {
         if (res.code) {
@@ -31,7 +32,10 @@ export default class Index extends Component {
               })
               Taro.setStorage({
                 key: 'openid',
-                data: resp.data.openid
+                data: resp.data
+              })
+              Taro.reLaunch({
+                url: '/pages/index/index'
               })
             }
           })

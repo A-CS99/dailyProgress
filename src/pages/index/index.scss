@@ -120,7 +120,7 @@ button::after {
   opacity: 0.6;
 }
 
-.leisure {
+.buffer {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -133,13 +133,22 @@ button::after {
   opacity: 0.6;
 }
 
-// 上半简介栏
-
-.menu {
+.mainContainer {
   position: absolute;
   left: 3.33%;
   right: 3.33%;
   top: 9.3%;
+  bottom: 12.93%;
+  // border: 1px solid #000000;
+}
+
+// 上半简介栏
+
+.menu {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
   bottom: 69.57%;
 
   background: #FFFFFF;
@@ -286,10 +295,10 @@ button::after {
   position: absolute;
   display: flex;
   flex-direction: column;
-  left: 3.33%;
-  right: 3.33%;
+  left: 0%;
+  right: 0%;
   top: 32.12%;
-  bottom: 12.93%;
+  bottom: 0%;
 
   background: #FFFFFF;
   border-radius: 20px;
@@ -329,7 +338,7 @@ button::after {
   width: 60%;
   height: 100px;
   // border: 1px solid black;
-  margin: 30px 50px 0 0;
+  margin: 30px 10px 0 0;
 }
 
 .scheme-content {
@@ -432,4 +441,11 @@ button::after {
   color: gray;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+// 编辑/删除 选择器
+
+.deleteBtn {
+  margin-top: 20px;
+  background-color: red;
 }
